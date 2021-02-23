@@ -24,7 +24,7 @@ A transferência de dados, geralmente, usando o protocolo HTTP.
 
 O Rest, delimita algumas obrigações nessas transferências de dados.
 
-Resources seria então, uma entidade, um objeto.
+Resources (recursos) seria então, uma entidade, um objeto.
 
 ### 6 NECESSIDADES (constraints) para ser RESTful
 
@@ -32,9 +32,9 @@ Resources seria então, uma entidade, um objeto.
 
 - _Stateless_(Sem Estado): Cada requisição que o cliente faz para o servidor, deverá conter todas as informações necessárias para o servidor entender e responder (RESPONSE) a requisição (REQUEST). Exemplo: A sessão do usuário deverá ser enviada em todas as requisições, para saber se aquele usuário está autenticado e apto a usar os serviços, e o  servidor não pode lembrar que o cliente foi autenticado na requisição anterior. 
 
-- _Cacheable_: As respostas para uma requisição, deverão ser explicitas as dizer se aquela requisição, pode ou não ser cacheada pelo cliente (guardar atalhos de inicialização na memória em cache).
+- _Cacheable_: As respostas para uma requisição, deverão ser explicitas a dizer se aquela requisição, pode ou não ser cacheada pelo cliente (guardar atalhos de inicialização na memória em cache).
 
-- _Layered System_: O cliente acessa a um endpoint, sem precisar saber da complexidade, de quais passos estão sendo necessários para o servidor responder a requisição, ou quais outras camadas o servidor estará lidando, para que a requisição seja respondida.
+- _Layered System_: O cliente acessa a um endpoint (ex: https://graph.facebook.com), sem precisar saber da complexidade, de quais passos estão sendo necessários para o servidor responder a requisição, ou quais outras camadas o servidor estará lidando, para que a requisição seja respondida.
 (em outras palavras: o cliente não precisa saber o caminho que o garçon utilizou para enviar seu pedido a cozinha)
 
 - _Code on demand (optional)_: Dá a possibilidade da nossa aplicação pegar códigos, como o JavaScript, por exemplo, e executar no cliente.
@@ -45,3 +45,35 @@ Resources seria então, uma entidade, um objeto.
 RESTful, é a aplicação dos padrões REST.
 
 ## BOAS PRÁTICAS
+
+- Utilizar Verbos/Methods HTTP (GET, POST, ...) nas suas Requests / Requisições
+
+### VERBOS/METHODS HTTP (Principais)
+
+- GET: Receber dados de um Resource.
+- POST: Enviar dados ou informações para serem processados por um Resource.
+- PUT: Atualizar dados de um Resource.
+- DELETE: Deletar um Resource.
+
+[comment]: <> (Obs: Resource/Recurso seria o bloquinho de notas do garçon/API, onde ele anota as coisas/pedidos)
+
+- Utilizar plural ou singular na criação dos endpoints? _NÃO IMPORTA_ mas use um padrão!!
+- Não deixar barra no final do endpoint
+
+<!-- Endpoint: ex: http://localhost:3000/clients => local onde chamamos o garçon/API -->
+
+- Nunca deixe o cliente sem resposta!
+
+### STATUS DAS RESPOSTAS
+
+- 1xx: Informação
+- 2xx: Sucesso
+    - 200: OK
+    - 201: CREATED
+    - 204: Não tem conteúdo PUT POST DELETE
+- 3xx: Redirection 
+- 4xx: Client Error
+    - 400: Bad Request
+    - 404: Not Found!
+- 5xx: Server Error (Erro interno de Servidor)
+    500: Internal Server Error
