@@ -2,3 +2,4 @@
 
  - #rumoaoproximonivel
  - #jornadainfinita
+ - #focopraticagrupo

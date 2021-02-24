@@ -1,13 +1,13 @@
 import { Request, Response } from 'express';
-import { getRepository } from 'typeorm';
-import { User } from '../models/User';
+import { getCustomRepository } from 'typeorm';
+import { UsersRepository } from '../repositories/UsersRepository';
 
 class UserController {
     async create(request: Request, response: Response) {
         const { name, email } = request.body;
         
         // Repository = serve para fazer qualquer ação no banco de dados, neste caso criar um usuário
-        const usersRepository = getRepository(User);
+        const usersRepository = getCustomRepository(UsersRepository);
 
         // ===== Verificando se usuário já existe =====
         // SELECT * FROM USERS WHERE EMAIL = "email"
@@ -28,7 +28,7 @@ class UserController {
         // Salvando usuário inserido no body(no insominia), dentro do BD
         await usersRepository.save(user);
 
-        return response.json(user);
+        return response.status(201).json(user);
     }
 }
 
