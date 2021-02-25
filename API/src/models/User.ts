@@ -3,7 +3,7 @@ import { Column, CreateDateColumn, Entity, PrimaryColumn } from "typeorm"
 import { v4 as uuid } from 'uuid';
 
 
-@Entity("users")//Determina que é um repositório da table users
+@Entity("users")//Determina que é um repositório da table users que criamos no migration
 class User {
 
     @PrimaryColumn()

@@ -4,7 +4,7 @@ import { SurveysRepository } from "../repositories/SurveysRepository";
 
 class SurveysController {
     async create(request: Request, response: Response) {
-        // Pegando os dados da pesquisa do colocado no corpo da request
+        // Pegando os dados da pesquisa que foram colocado no corpo da request
         const { title, description } = request.body;
 
         // Acessando Repositorio 
